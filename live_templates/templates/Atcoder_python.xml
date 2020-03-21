@@ -9,7 +9,7 @@
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="dres" value="def resolve():&#10;    $END$&#10;    &#10;#resolve()&#10;" description="def resolve():" toReformat="false" toShortenFQNames="true">
+  <template name="res" value="# import bisect&#10;# from collections import Counter, deque&#10;# import copy&#10;# from fractions import gcd&#10;# from functools import reduce&#10;# from itertools import accumulate, permutations, combinations, combinations_with_replacement, groupby, product&#10;# import math&#10;# import numpy as np&#10;import sys&#10;sys.setrecursionlimit(10 ** 5 + 10)&#10;# input = sys.stdin.readline&#10;&#10;def resolve():&#10;    $END$&#10;    &#10;#resolve()&#10;" description="def resolve():" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="Python" value="true" />
     </context>
@@ -17,12 +17,6 @@
   <template name="fr" value="for $i$ in range($N$):" description="for $i$ in range($N$):" toReformat="false" toShortenFQNames="true">
     <variable name="i" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="N" expression="" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="Python" value="true" />
-    </context>
-  </template>
-  <template name="impres" value="from abc_prog$2$ import resolve" description="from abc_prog import resolve" toReformat="false" toShortenFQNames="true">
-    <variable name="2" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="Python" value="true" />
     </context>
@@ -37,24 +31,136 @@
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="linp" value="[$i$ for i in range($N$)]" description="[int(input()) for i in range(N)]" toReformat="false" toShortenFQNames="true">
+  <template name="ll" value="[$i$ for i in range($N$)]" description="[hoge for i in range(N)]" toReformat="false" toShortenFQNames="true">
     <variable name="i" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="N" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
-  <template name="lmi" value="list(map(int,input().split()))&#10;" description="list(map(int,input().split()))" toReformat="false" toShortenFQNames="true">
-    <context>
-      <option name="Python" value="true" />
-    </context>
-  </template>
-  <template name="res" value="resolve()" description="res" toReformat="false" toShortenFQNames="true">
+  <template name="lmi" value="list(map(int,input().split()))" description="list(map(int,input().split()))" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="Python" value="true" />
     </context>
   </template>
   <template name="si" value="str(input())" description="str(input())" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="lms" value="list(map(str,input().split()))" description="list(map(str,input().split()))" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="grid" value="[[_ for _ in input()] for _ in range($w$)]" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="w" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="knapsack1" value="N, W = map(int, input().split())&#10;weight, value = [0] * N, [0] * N&#10;for i in range(N):&#10;    weight[i], value[i] = map(int, input().split())&#10;&#10;&#10;# この前段階で、荷物の数N、ウェイトの上限W、&#10;# weightの表weightとvalueの表valueは用意しておく。&#10;def knapsack(N, W, weight, value):&#10;    dp = [[0] * (W + 1) for _ in range(N + 1)]&#10;&#10;    for i in range(N):&#10;        for w in range(W + 1):&#10;            if w &gt;= weight[i]:  # 荷物が加わる可能性がある&#10;                # max関数の第一引数だと、既存の荷物の方がましな場合。&#10;                # 第二引数だと、新入りを加えた方が良い場合。&#10;                dp[i + 1][w] = max(dp[i][w], dp[i][w - weight[i]] + value[i])&#10;            else:  # 加わる可能性はない&#10;                dp[i + 1][w] = dp[i][w]&#10;&#10;    return dp[N][W]&#10;&#10;print(knapsack(N, W, weight, value))&#10;" description="Wの入力がVのそれより小さい時" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="mi" value="map(int,input().split())" description="map(int,input().split())" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="moji_list" value="# アルファベット小文字→(97, 123)を入力に入れる&#10;# アルファベット大文字→(65, 91)&#10;# 半角数字→(48, 58)&#10;# ひらがな→(12353, 12436)&#10;# カタカナ→(12449, 12532+1)&#10;# 全角数字→(65296, 65306)&#10;&#10;def moji_list(*args):&#10;    moji = []&#10;    for i in range(len(args)):&#10;        moji.extend([chr(j) for j in range(args[i][0], args[i][1])])&#10;    return moji" description="list of characters" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="knapsack2" value="N, W = map(int, input().split())&#10;weight, value = [0] * N, [0] * N&#10;for i in range(N):&#10;    weight[i], value[i] = map(int, input().split())&#10;&#10;# この前段階で、荷物の数N、ウェイトの上限W、&#10;# weightの表weightとvalueの表valueは用意しておく。&#10;def knapsack(N, W, weight, value):&#10;&#10;    V = sum(value)&#10;    # dp[i][v]はvを運べる最小のウェイトを意味する。&#10;    # 求めたいのは、dp[N][v]&lt;=Wなるvのmax&#10;    dp = [[float('inf')] * (V + 1) for _ in range(N + 1)]&#10;    dp[0][0] = 0&#10;&#10;    for i in range(N):&#10;        for v in range(V + 1):&#10;            if v &gt;= value[i]:&#10;                dp[i + 1][v] = min(dp[i][v], dp[i][v - value[i]] + weight[i])&#10;            else:&#10;                dp[i + 1][v] = dp[i][v]&#10;&#10;    # これまでの作業でdpのn行目には、各vを満たすことができる最小のウェイトが並べられている。&#10;    # これを逆手にとって、与えられたウェイトでもたらすことができる最大のvを求める。&#10;    # dp[N][j]がW以下であるようなjの最大値が答えになる&#10;    ans = 0&#10;    for v in range(V + 1):&#10;        if dp[N][v] &lt;= W:&#10;            ans = v&#10;&#10;    return ans&#10;&#10;print(knapsack(N, W, weight, value))" description="Vの入力がWのそれより小さい時" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="ll2" value="$A$, $B$ = [0] * $N$, [0] * $N$&#10;for i in range($N$):&#10;    $A$[i], $B$[i] = map(int, input().split())&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="A" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="B" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="N" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="dic" value="$S$ = {$s$: list(input()) for $s$ in '$abc$'}&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="S" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="s" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="abc" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="lldif" value="$S$, $P$ = [0] * $N$, [0] * $N$&#10;for i in range($N$):&#10;    $s$, $p$ = input().split()&#10;    S[i] = $q$&#10;    P[i] = $r$" description="str intの多次元配列" toReformat="false" toShortenFQNames="true">
+    <variable name="S" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="P" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="N" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="s" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="p" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="q" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="r" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="is" value="input().split()" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="prime_number_list" value="# n以下の素数のリストprimes&#10;n = 100&#10;primes = set(range(2, n + 1))&#10;&#10;# 合成数 x は p&lt;=x**0.5を満たす素因子 p をもつという性質を利用&#10;for i in range(2, int(n ** 0.5 + 1)):&#10;    primes.difference_update(range(i * 2, n + 1, i))&#10;primes = list(primes)&#10;" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="lcm" value="$A$ * $B$ // fractions.gcd($A$, $B$)&#10;" description="AとBの最小公倍数" toReformat="false" toShortenFQNames="true">
+    <variable name="A" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="B" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="bfs" value="from collections import deque&#10;&#10;H, W = map(int, input().split())&#10;sy, sx = map(int, input().split())&#10;gy, gx = map(int, input().split())&#10;sy, sx, gy, gx = sy - 1, sx - 1, gy - 1, gx - 1&#10;&#10;maze = [input() for i in range(H)]&#10;visited = [[-1] * W for j in range(H)]&#10;&#10;&#10;def bfs(maze, visited, sy, sx, gy, gx):&#10;    queue = deque([[sy, sx]])&#10;    visited[sy][sx] = 0&#10;    while queue:&#10;        y, x = queue.popleft()&#10;        if [y, x] == [gy, gx]:&#10;            return visited[y][x]&#10;        for j, k in ([1, 0], [-1, 0], [0, 1], [0, -1]):&#10;            ny, nx = y + j, x + k&#10;            if 0 &lt;= ny &lt; H and 0 &lt;= nx &lt; W and \&#10;                    maze[ny][nx] == &quot;.&quot; and visited[nx][nx] == -1:&#10;                visited[ny][nx] = visited[y][x] + 1&#10;                queue.append([ny, nx])&#10;&#10;&#10;print(bfs(maze, visited, sy, sx, gy, gx))" description="" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="dict_sort" value="$S2$ = dict(sorted($S$.items(), key=lambda x: x[1]))" description="dict型をvalueでsort" toReformat="false" toShortenFQNames="true">
+    <variable name="S2" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="S" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="li2" value="$s$ = input()&#10;$a$ = [int(c) for c in $s$]&#10;" description="単行数値。桁ごとに分割したリストとしてとる。" toReformat="false" toShortenFQNames="true">
+    <variable name="s" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="a" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="gcd3" value="from functools import reduce&#10;from fractions import gcd&#10;S=[15,25,30]&#10;print(reduce(gcd,S))" description="3つ以上の最大公約数" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="ceil" value="-(-$a$ // $b$)&#10;" description="切り上げ" toReformat="false" toShortenFQNames="true">
+    <variable name="a" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="b" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="lcs_dp" value="# 文字列S, Tのlongest common subsequenceを返す&#10;# なお、longest common substringではない&#10;# （要素同士がとなりあっていなくてもいい）ことに注意！&#10;def lcs(S, T):&#10;    # 初期化&#10;    dp = [[0] * (len(T) + 1) for j in range(len(S) + 1)]&#10;&#10;    # dp[i][j]はS[:i]とT[:j]のlcsの長さを表す&#10;    for i in range(len(S)):&#10;        for j in range(len(T)):&#10;            # その前までの値引き継ぎ&#10;            dp[i + 1][j + 1] = max(dp[i][j + 1], dp[i + 1][j])&#10;            # 望まれたニューカマーが来たら足す&#10;            if S[i] == T[j]:&#10;                dp[i + 1][j + 1] = max(dp[i + 1][j + 1], dp[i][j] + 1)&#10;&#10;    # If you want to know just the length of the lcs, return dp[i + 1][j + 1].&#10;    # Here we'll try to print the lcs.&#10;&#10;    lcs_str = ''&#10;    i, j = len(S) - 1, len(T) - 1&#10;    while i &gt;= 0 and j &gt;= 0:&#10;        if S[i] == T[j]:&#10;            lcs_str += S[i]&#10;            i -= 1&#10;            j -= 1&#10;        else:&#10;            if dp[i][j + 1] &gt; dp[i + 1][j]:&#10;                i -= 1&#10;            else:&#10;                j -= 1&#10;&#10;    return lcs_str[::-1]" description="最長胸痛部分列を返す" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="Python" value="true" />
+    </context>
+  </template>
+  <template name="longest_path_dp" value="# 入力&#10;N, M = map(int, input().split())&#10;# 隣接関係は隣接リストで管理する&#10;lst_edge = [[] for _ in range(N)]&#10;for _ in range(M):&#10;    x, y = map(int, input().split())&#10;    # 最初のindexをゼロにする&#10;    lst_edge[x - 1].append(y - 1)&#10;# dp[v] := ノードvを始点とした時の有向パスの長さの最大値&#10;# -1 未訪問で初期化。&#10;dp = [-1] * N&#10;&#10;&#10;# メモ化再帰。vから行ける有向パスの長さをdp[v]に格納するための関数&#10;def rec(v):&#10;    # 既に更新済み&#10;    if dp[v] != -1:&#10;        return dp[v]&#10;    ans = 0&#10;    lst_nv = lst_edge[v]&#10;    # ノードvから直接行くことのできる各ノードnv&#10;    for nv in lst_nv:&#10;        ans = max(ans, rec(nv) + 1)&#10;    # メモりつつリターン&#10;    dp[v] = ans&#10;    return dp[v]&#10;&#10;&#10;# 全ての点に対して更新する&#10;ans = 0&#10;for v in range(N):&#10;    ans = max(ans, rec(v))&#10;&#10;print(ans)" description="EDP_G問題" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="Python" value="true" />
     </context>
