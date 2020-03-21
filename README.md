@@ -7,7 +7,11 @@ The target is people using Python in Pycharm. This project is still under develo
 
 Please open the file named 'Atcoder_python.xml' in folder 'templates'.
 
-### 内容
+The content is also explained in the page below.
+(https://qiita.com/Fukucchi/items/f5329539b299a707fe89)
+
+
+### 中身
 
 現在、28種類のスニペットを入れています。内訳はおおよそ以下の通りです。
 * 各種ライブラリのインポート（res）
@@ -26,5 +30,3 @@ Please open the file named 'Atcoder_python.xml' in folder 'templates'.
  
 
 
-The content is also explained in the page below.
-(https://qiita.com/Fukucchi/items/f5329539b299a707fe89)
