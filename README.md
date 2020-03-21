@@ -23,5 +23,5 @@ Please open the file named 'Atcoder_python.xml' in folder 'templates'.
  
 
 
-The content is also explained in a page below.
+The content is also explained in the page below.
 (https://qiita.com/Fukucchi/items/f5329539b299a707fe89)
