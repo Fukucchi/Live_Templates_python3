@@ -1,10 +1,13 @@
 ## README
 
+### 概要
 This is Live Templates that may be useful for solving AtCoder problems.
 
 The target is people using Python in Pycharm. This project is still under development.
 
 Please open the file named 'Atcoder_python.xml' in folder 'templates'.
+
+### 内容
 
 現在、28種類のスニペットを入れています。内訳はおおよそ以下の通りです。
 * 各種ライブラリのインポート（res）
