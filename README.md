@@ -7,9 +7,6 @@ The target is people using Python in Pycharm. This project is still under develo
 
 Please open the file named 'Atcoder_python.xml' in folder 'templates'.
 
-The content is also explained in the page below.
-(https://qiita.com/Fukucchi/items/f5329539b299a707fe89)
-
 
 ### 中身
 
